@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/5.2/ -->
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" rel="stylesheet">
+        <script crossorigin="anonymous" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- https://favicon.io/emoji-favicons/money-bag/ -->
+        <link href="/static/favicon.ico" rel="icon">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+
+        <title>Movies</title>
+
+    </head>
+
+    <body>
+      <div class="header">
+        <h1>Boris' Movie Database (BMDb)</h1>
+      </div>
+
+        {% if get_flashed_messages() %} <!-- flash for " you are already logged in for instance"-->
+        <header>
+            <div class="alert alert-primary mb-0 text-center" role="alert">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+        </header>
+    {% endif %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  <a class="nav-link" href="/seen">My movies & write a review</a>
+                  <a class="nav-link" href="/reviews">My reviews</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                  <a class="nav-link" href="/logout">Logout</a>
+                </div>
+
+            </div>
+            </div>
+          </nav>
+
+          <div class="header">
+
+          </div>
+
+
+
+
+
+
+        <form action="/suggestion" method="post">
+
+
+
+
+                <input name="mood" type="checkbox" class="check" value="Action">Action
+                <input name="mood" type="checkbox" class="check" value="Adventure">Adventure
+                <input name="mood" type="checkbox" class="check" value="Animation">Animation
+                <input name="mood" type="checkbox" class="check" value="Biography">Biography
+                <input name="mood" type="checkbox" class="check" value="Comedy">Comedy<br>
+                <input name="mood" type="checkbox" class="check" value="Crime">Crime
+                <input name="mood" type="checkbox" class="check" value="Drama">Drama
+                <input name="mood" type="checkbox" class="check" value="Family">Family
+                <input name="mood" type="checkbox" class="check" value="Fantasy">Fantasy
+                <input name="mood" type="checkbox" class="check" value="History">History<br>
+                <input name="mood" type="checkbox" class="check" value="Music">Music
+                <input name="mood" type="checkbox" class="check" value="Musical">Musical
+                <input name="mood" type="checkbox" class="check" value="Horror">Horror
+                <input name="mood" type="checkbox" class="check" value="Mystery">Mystery
+                <input name="mood" type="checkbox" class="check" value="Romance">Romance<br>
+                <input name="mood" type="checkbox" class="check" value="Sci-Fi">Sci-Fi
+                <input name="mood" type="checkbox" class="check" value="Sport">Sport
+                <input name="mood" type="checkbox" class="check" value="Thriller">Thriller
+                <input name="mood" type="checkbox" class="check" value="War">War
+                <input name="mood" type="checkbox" class="check" value="Western">Western
+
+
+
+
+
+
+                <br><input type="submit" value="Submit">
+
+        </form>
+        <p>Well, what is your mood today for a movie ? Choose at least one of the options above, max 3</p>
+
+
+
+<script>
+var checks = document.querySelectorAll(".check"); // 3 choices max script
+var max = 3;
+for (var i = 0; i < checks.length; i++)
+  checks[i].onclick = selectiveCheck;
+function selectiveCheck (event) {
+  var checkedChecks = document.querySelectorAll(".check:checked");
+  if (checkedChecks.length >= max + 1)
+    return false;
+}
+</script>
+    </body>
+
+
+
+</html>
+
+
+
+

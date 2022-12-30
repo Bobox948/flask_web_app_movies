@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <select id="select" style='appearance: none' name="register">
+        <input autocomplete="off" autofocus name="username" placeholder="Username" type="text" style="width: 150px; margin-bottom: 10px;">
+        <br><input autocomplete="off" autofocus name="password" type="PASSWORD" placeholder="Password" style="width: 150px;margin-bottom: 10px;"">
+        <br><input autocomplete="off" autofocus name="confirmation" type="PASSWORD" placeholder="Confirmation" style="width: 150px;margin-bottom: 10px;"">
+        <br><input autocomplete="off" min="1900" max="2012"" name="year" placeholder="Year" type="number" style="width: 150px;margin-bottom: 10px;"">
+        <br><button type="submit">Register</button>
+        </select>
+    </form>
+    <p>Disclaimer : year of birth will allow us to filter the recommandations for you</p>
+{% endblock %}
+
+
+
+
+
+
+
